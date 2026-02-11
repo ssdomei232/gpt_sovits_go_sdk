@@ -20,28 +20,28 @@ type Client struct {
 
 // TTSRequest 代表 TTS 请求载荷
 type TTSRequest struct {
-	Text              string   `json:"text"`                // str.(必填) 需要合成的文本
-	TextLang          string   `json:"text_lang"`           // str.(必填) 待合成文本的语言
-	RefAudioPath      string   `json:"ref_audio_path"`      // str.(必填) 参考音频路径
-	AuxRefAudioPaths  []string `json:"aux_ref_audio_paths"` // list.(可选) 辅助参考音频路径，用于多说话人音色融合
-	PromptText        string   `json:"prompt_text"`         // str.(可选) 参考音频的提示文本
-	PromptLang        string   `json:"prompt_lang"`         // str.(必填) 参考音频提示文本的语言
-	TopK              int      `json:"top_k"`               // int. Top K 采样
-	TopP              float64  `json:"top_p"`               // float. Top P 采样
-	Temperature       float64  `json:"temperature"`         // float. 采样温度
-	TextSplitMethod   string   `json:"text_split_method"`   // str. 文本分割方法，详见 text_segmentation_method.py
-	BatchSize         int      `json:"batch_size"`          // int. 推理批次大小
-	BatchThreshold    float64  `json:"batch_threshold"`     // float. 批次分割阈值
-	SplitBucket       bool     `json:"split_bucket"`        // bool. 是否将批次分割成多个桶
-	SpeedFactor       float64  `json:"speed_factor"`        // float. 控制合成音频的速度
-	FragmentInterval  float64  `json:"fragment_interval"`   // float. 控制音频片段间隔
-	Seed              int      `json:"seed"`                // int. 随机种子，用于复现结果
-	MediaType         string   `json:"media_type"`          // str. 输出音频媒体类型，支持 "wav", "raw", "ogg", "aac"
-	StreamingMode     bool     `json:"streaming_mode"`      // bool. 是否返回流式响应
-	ParallelInfer     bool     `json:"parallel_infer"`      // bool.(可选) 是否使用并行推理
-	RepetitionPenalty float64  `json:"repetition_penalty"`  // float.(可选) T2S模型重复惩罚
-	SampleSteps       int      `json:"sample_steps"`        // int. VITS模型V3的采样步数
-	SuperSampling     bool     `json:"super_sampling"`      // bool. 使用VITS模型V3时是否使用超采样
+	Text              string   `json:"text, omitempty"`                // str.(必填) 需要合成的文本
+	TextLang          string   `json:"text_lang, omitempty"`           // str.(必填) 待合成文本的语言
+	RefAudioPath      string   `json:"ref_audio_path, omitempty"`      // str.(必填) 参考音频路径
+	AuxRefAudioPaths  []string `json:"aux_ref_audio_paths, omitempty"` // list.(可选) 辅助参考音频路径，用于多说话人音色融合
+	PromptText        string   `json:"prompt_text, omitempty"`         // str.(可选) 参考音频的提示文本
+	PromptLang        string   `json:"prompt_lang, omitempty"`         // str.(必填) 参考音频提示文本的语言
+	TopK              int      `json:"top_k, omitempty"`               // int. Top K 采样
+	TopP              float64  `json:"top_p, omitempty"`               // float. Top P 采样
+	Temperature       float64  `json:"temperature, omitempty"`         // float. 采样温度
+	TextSplitMethod   string   `json:"text_split_method, omitempty"`   // str. 文本分割方法，详见 text_segmentation_method.py
+	BatchSize         int      `json:"batch_size, omitempty"`          // int. 推理批次大小
+	BatchThreshold    float64  `json:"batch_threshold, omitempty"`     // float. 批次分割阈值
+	SplitBucket       bool     `json:"split_bucket, omitempty"`        // bool. 是否将批次分割成多个桶
+	SpeedFactor       float64  `json:"speed_factor, omitempty"`        // float. 控制合成音频的速度
+	FragmentInterval  float64  `json:"fragment_interval, omitempty"`   // float. 控制音频片段间隔
+	Seed              int      `json:"seed, omitempty"`                // int. 随机种子，用于复现结果
+	MediaType         string   `json:"media_type, omitempty"`          // str. 输出音频媒体类型，支持 "wav", "raw", "ogg", "aac"
+	StreamingMode     bool     `json:"streaming_mode, omitempty"`      // bool. 是否返回流式响应
+	ParallelInfer     bool     `json:"parallel_infer, omitempty"`      // bool.(可选) 是否使用并行推理
+	RepetitionPenalty float64  `json:"repetition_penalty, omitempty"`  // float.(可选) T2S模型重复惩罚
+	SampleSteps       int      `json:"sample_steps, omitempty"`        // int. VITS模型V3的采样步数
+	SuperSampling     bool     `json:"super_sampling, omitempty"`      // bool. 使用VITS模型V3时是否使用超采样
 }
 
 // TTSResponse 代表 TTS 响应

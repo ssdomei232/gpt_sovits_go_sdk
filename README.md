@@ -7,16 +7,18 @@ import (
  "context"
  "fmt"
  "os"
+
+ gsv "github.com/ssdomei232/gpt_sovits_go_sdk"
 )
 
 func main() {
  // 创建客户端实例
- client := NewClient("http://127.0.0.1:9880")
+ client := gsv.NewClient("http://127.0.0.1:9880")
 
  ctx := context.Background()
 
  // 示例1: 使用POST请求进行TTS转换
- ttsReq := TTSRequest{
+ ttsReq := gsv.TTSRequest{
   Text:            "你好，这是一个测试文本",     // 需要合成的文本
   TextLang:        "zh",                      // 文本语言
   RefAudioPath:    "reference_audio.wav",     // 参考音频路径

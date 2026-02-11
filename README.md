@@ -22,8 +22,6 @@ func main() {
   RefAudioPath:    "reference_audio.wav",     // 参考音频路径
   PromptText:      "这是一个示例提示文本",      // 提示文本
   PromptLang:      "zh",                      // 提示文本语言
-  TextSplitMethod: "cut5",                    // 文本分割方法
-  BatchSize:       1,                         // 批次大小
   MediaType:       "wav",                     // 输出音频类型
   StreamingMode:   false,                     // 是否流式输出
  }
